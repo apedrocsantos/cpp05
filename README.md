@@ -34,6 +34,8 @@ int main()
 
 ### [**Exception handling in C++**](https://www.geeksforgeeks.org/exception-handling-c/)
 
+### [**List of std exceptions**](https://www.geeksforgeeks.org/cpp-program-to-handle-the-exception-methods/)
+
 Exceptions are a way of handling errors by reporting with a message when an error is found instead of handling errors like in C (returning -1, 1, 2, 3...).
 
 ```CPP

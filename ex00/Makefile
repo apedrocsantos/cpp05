@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = ex00
 
-FILES =	
+FILES =	Bureaucrat
 
 SRCS =	$(FILES:=.cpp) main.cpp
 
