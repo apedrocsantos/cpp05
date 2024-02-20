@@ -6,13 +6,16 @@
 /*   By: anda-cun <anda-cun@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:32:27 by anda-cun          #+#    #+#             */
-/*   Updated: 2024/02/19 17:46:44 by anda-cun         ###   ########.fr       */
+/*   Updated: 2024/02/20 09:43:06 by anda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 #include <iostream>
+#include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat
 {
@@ -48,6 +51,7 @@ class Bureaucrat
     void setGrade(int grade);
     void incrementGrade(void);
     void decrementGrade(void);
+    void signForm(AForm &f);
 };
 
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs);

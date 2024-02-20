@@ -6,11 +6,12 @@
 /*   By: anda-cun <anda-cun@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:32:24 by anda-cun          #+#    #+#             */
-/*   Updated: 2024/02/19 18:31:55 by anda-cun         ###   ########.fr       */
+/*   Updated: 2024/02/19 20:39:36 by anda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(void)
 {
@@ -80,6 +81,14 @@ void Bureaucrat::decrementGrade(void)
     else
         throw(Bureaucrat::GradeTooLowException());
 };
+
+void Bureaucrat::signForm(Form &f)
+{
+    if (f.getSignGrade() >= this->getGrade())
+        std::cout << this->_name << " signed " << f.getName() << ".\n";
+    else
+        std::cout << this->_name << " couldn't sign " << f.getName() << " because he doesn't have enough privileges.\n";
+}
 
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs) {
         o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << ".\n";
