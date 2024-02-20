@@ -2,13 +2,14 @@ CXX = c++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = ex02
+NAME = ex03
 
 FILES =	Bureaucrat\
 		AForm\
 		ShrubberyCreationForm\
 		RobotomyRequestForm\
 		PresidentialPardonForm\
+		Intern\
 
 SRCS =	$(FILES:=.cpp) main.cpp
 
