@@ -6,7 +6,7 @@
 /*   By: anda-cun <anda-cun@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 18:03:55 by anda-cun          #+#    #+#             */
-/*   Updated: 2024/02/20 18:27:54 by anda-cun         ###   ########.fr       */
+/*   Updated: 2024/03/07 13:30:28 by anda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class Bureaucrat;
 class AForm
 {
     std::string const _name;
-    std::string _target;
     bool _is_signed;
     int const _sign_grade;
     int const _exe_grade;
@@ -48,14 +47,14 @@ class AForm
     class CantExe : public std::exception
     {
         public:
-        virtual const char* what() const throw() {return "Bureaucrat can't execute form.\n";}
+        virtual const char* what() const throw() {return "Grade too low.\n";}
     };
     
     AForm(void);
     AForm(std::string name, int sign_grade, int exe_grade);
     AForm(const AForm& that);
     AForm &operator=(const AForm &that);
-    ~AForm();
+    virtual ~AForm();
     std::string getName() const;
     bool getIsSigned() const;
     int getSignGrade() const;

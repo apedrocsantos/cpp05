@@ -6,7 +6,7 @@
 /*   By: anda-cun <anda-cun@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 18:03:50 by anda-cun          #+#    #+#             */
-/*   Updated: 2024/02/20 09:17:59 by anda-cun         ###   ########.fr       */
+/*   Updated: 2024/03/07 11:55:10 by anda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,17 +69,14 @@ int Form::getExeGrade() const
 
 void Form::beSigned(Bureaucrat &b)
 {
-    b.signForm(*this);
     if (b.getGrade() <= this->_sign_grade)
-    {
         this->_is_signed = true;
-    }
     else
         throw(Form::GradeTooLowException());
 }
 
 std::ostream & operator<<(std::ostream & o, Form const & rhs)
 {
-    o << rhs.getName() << ", is signed: " << rhs.getIsSigned() << ".\nSign grade: " << rhs.getSignGrade() << ", execute grade: " << rhs.getExeGrade() << ".\n";
+    o << rhs.getName() << " is signed? " << rhs.getIsSigned() << ".\nSign grade: " << rhs.getSignGrade() << ", execute grade: " << rhs.getExeGrade() << ".\n";
     return (o);
 }

@@ -13,6 +13,7 @@
 #include "RobotomyRequestForm.hpp"
 #include <iostream>
 #include <fstream>
+#include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm(void) : AForm("RobotomyRequestForm", 72, 45)
 {

@@ -6,7 +6,7 @@
 /*   By: anda-cun <anda-cun@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 18:03:50 by anda-cun          #+#    #+#             */
-/*   Updated: 2024/02/20 18:28:08 by anda-cun         ###   ########.fr       */
+/*   Updated: 2024/03/07 12:36:50 by anda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int AForm::getExeGrade() const
 
 void AForm::beSigned(Bureaucrat &b)
 {
-    b.signForm(*this);
     if (b.getGrade() <= this->_sign_grade)
     {
         this->_is_signed = true;

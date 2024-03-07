@@ -6,7 +6,7 @@
 /*   By: anda-cun <anda-cun@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:32:18 by anda-cun          #+#    #+#             */
-/*   Updated: 2024/02/19 17:57:19 by anda-cun         ###   ########.fr       */
+/*   Updated: 2024/03/07 11:04:07 by anda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int main()
 {
-
 	std::cout << "\n===== Try creating a Bureaucrat with -100 =====\n\n";
 	try
 	{
@@ -25,14 +24,11 @@ int main()
 		b.decrementGrade();
 		std::cout << b.getGrade() << "\n";
 	}
-	catch(Bureaucrat::GradeTooHighException& e)
+	catch(const std::exception& e)
 	{
 		std::cout << e.what();
 	}
-	catch(Bureaucrat::GradeTooLowException& e)
-	{
-		std::cout << e.what();
-	}
+	
 	std::cout << "\n===== Try creating a Bureaucrat with 151 =====\n\n";
 	try
 	{
@@ -43,15 +39,11 @@ int main()
 		b.decrementGrade();
 		std::cout << b.getGrade() << "\n";
 	}
-	catch(Bureaucrat::GradeTooHighException& e)
+	catch(const std::exception& e)
 	{
 		std::cout << e.what();
 	}
-	catch(Bureaucrat::GradeTooLowException& e)
-	{
-		std::cout << e.what();
-	}
-
+	
 	std::cout << "\n===== Try creating a Bureaucrat with 100 =====\n\n";
 	try
 	{
@@ -62,15 +54,11 @@ int main()
 		b.decrementGrade();
 		std::cout << b.getGrade() << "\n";
 	}
-	catch(Bureaucrat::GradeTooHighException& e)
+	catch(const std::exception& e)
 	{
 		std::cout << e.what();
 	}
-	catch(Bureaucrat::GradeTooLowException& e)
-	{
-		std::cout << e.what();
-	}
-
+	
 	std::cout << "\n===== Try creating a Bureaucrat with 1 =====\n\n";
 	try
 	{
@@ -88,11 +76,7 @@ int main()
 		b.decrementGrade();
 		std::cout << b.getGrade() << "\n";
 	}
-	catch(Bureaucrat::GradeTooHighException& e)
-	{
-		std::cout << e.what();
-	}
-	catch(Bureaucrat::GradeTooLowException& e)
+	catch(const std::exception& e)
 	{
 		std::cout << e.what();
 	}

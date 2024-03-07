@@ -6,7 +6,7 @@
 /*   By: anda-cun <anda-cun@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:32:18 by anda-cun          #+#    #+#             */
-/*   Updated: 2024/02/20 19:35:41 by anda-cun         ###   ########.fr       */
+/*   Updated: 2024/03/07 13:24:40 by anda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,64 @@
 
 int main()
 {
+	std::cout << "\n===== Creating a non-existing form =====\n\n";
 	try
 	{
 		Bureaucrat b("ze", 5);
-		PresidentialPardonForm f("home");
 		Intern i;
-		AForm *f2 = i.makeForm("ShrubberyCreationForm", "target");
-		f.beSigned(b);
-		f.execute(b);
-		f2->beSigned(b);
-		f2->execute(b);
+		AForm *f = i.makeForm("PresidedntialPardonForm", "target");
+		std::cout << *f;
+		b.signForm(*f);
+		b.executeForm(*f);
+		delete f;
+	}
+	catch(std::exception& e)
+	{
+		std::cout << e.what();
+	}
+
+	std::cout << "\n===== Creating a ShrubberyCreationForm form =====\n\n";
+	try
+	{
+		Bureaucrat b("ze", 5);
+		Intern i;
+		AForm *f = i.makeForm("ShrubberyCreationForm", "target");
+		std::cout << *f;
+		b.signForm(*f);
+		b.executeForm(*f);
+		delete f;
+	}
+	catch(std::exception& e)
+	{
+		std::cout << e.what();
+	}
+
+	std::cout << "\n===== Creating a RobotomyRequestForm form =====\n\n";
+	try
+	{
+		Bureaucrat b("ze", 5);
+		Intern i;
+		AForm *f = i.makeForm("RobotomyRequestForm", "target");
+		std::cout << *f;
+		b.signForm(*f);
+		b.executeForm(*f);
+		delete f;
+	}
+	catch(std::exception& e)
+	{
+		std::cout << e.what();
+	}
+
+	std::cout << "\n===== Creating a PresidentialPardonForm form =====\n\n";
+	try
+	{
+		Bureaucrat b("ze", 5);
+		Intern i;
+		AForm *f = i.makeForm("PresidentialPardonForm", "target");
+		std::cout << *f;
+		b.signForm(*f);
+		b.executeForm(*f);
+		delete f;
 	}
 	catch(std::exception& e)
 	{

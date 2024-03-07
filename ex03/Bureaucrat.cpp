@@ -6,7 +6,7 @@
 /*   By: anda-cun <anda-cun@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:32:24 by anda-cun          #+#    #+#             */
-/*   Updated: 2024/02/20 18:31:45 by anda-cun         ###   ########.fr       */
+/*   Updated: 2024/03/07 12:41:39 by anda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,18 +84,34 @@ void Bureaucrat::decrementGrade(void)
 
 void Bureaucrat::signForm(AForm &f)
 {
-    if (f.getSignGrade() >= this->getGrade())
+    if (f.getIsSigned())
+    {
+        std::cout << "Form is already signed\n";
+        return;
+    }
+    try
+    {
+        f.beSigned(*this);
         std::cout << this->_name << " signed " << f.getName() << ".\n";
-    else
+    }
+    catch(const std::exception& e)
+    {
         std::cout << this->_name << " couldn't sign " << f.getName() << " because he doesn't have enough privileges.\n";
+    }
 }
 
 void  Bureaucrat::executeForm(AForm const & form)
 {
-    if (this->_grade > form.getExeGrade())
-        std::cout << this->_name << " can't execute form.\n";
-    else
-        std::cout << this->_name << " executed form " << form.getName() << ".\n";
+    try
+    {
+        form.execute(*this);
+        std::cout << this->_name << " executed form " << form.getName() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << this->_name << " couldn't execute form. ";
+        std::cout << "Reason: " << e.what() << std::endl;
+    }
 }
 
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs) {

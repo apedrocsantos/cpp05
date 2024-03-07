@@ -6,7 +6,7 @@
 /*   By: anda-cun <anda-cun@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:32:24 by anda-cun          #+#    #+#             */
-/*   Updated: 2024/02/19 20:39:36 by anda-cun         ###   ########.fr       */
+/*   Updated: 2024/03/07 11:56:33 by anda-cun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,20 @@ void Bureaucrat::decrementGrade(void)
 
 void Bureaucrat::signForm(Form &f)
 {
-    if (f.getSignGrade() >= this->getGrade())
+    if (f.getIsSigned())
+    {
+        std::cout << "Form is already signed\n";
+        return;
+    }
+    try
+    {
+        f.beSigned(*this);
         std::cout << this->_name << " signed " << f.getName() << ".\n";
-    else
+    }
+    catch(const std::exception& e)
+    {
         std::cout << this->_name << " couldn't sign " << f.getName() << " because he doesn't have enough privileges.\n";
+    }
 }
 
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs) {
